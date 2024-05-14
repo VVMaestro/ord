@@ -4,6 +4,9 @@ extends CharacterBody2D
 var animation_player: AnimationPlayer
 var nav_line: Line2D
 
+@onready
+var sprite: Sprite2D = $Sprite2D
+
 @export
 var a_star_grid: Node2D
 
@@ -37,3 +40,9 @@ func draw_nav_line(line_path: Array[Vector2]) -> void:
 
 func clear_nav_line() -> void:
    nav_line.clear_points()
+
+func turn_left() -> void:
+  sprite.flip_h = true
+
+func turn_right() -> void:
+  sprite.flip_h = false

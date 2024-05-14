@@ -3,7 +3,7 @@ extends State
 
 var current_step = 0
 
-var run_speed = 20
+var run_speed = 40
 
 var last_step_value = 2
 
@@ -22,6 +22,11 @@ func do(delta: float) -> void:
     return
 
   var current_path: Vector2 = core.path[current_step]
+
+  if current_path.x > core.position.x:
+    core.turn_right()
+  elif current_path.x < core.position.x:
+    core.turn_left()
 
   var x = move_toward(core.position.x, current_path.x, delta * run_speed)
   var y = move_toward(core.position.y, current_path.y, delta * run_speed)

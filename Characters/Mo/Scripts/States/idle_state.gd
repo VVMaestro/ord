@@ -39,11 +39,9 @@ func handle_mouse_exit_map() -> void:
 	core.clear_nav_line()
 
 func is_possible_path() -> bool:
-	var path = calculate_path()
-
-	print_debug(path)
+	var core = self.core_entity()
 	
-	return path.size() > 0
+	return core.a_star_grid.is_in_bounds(core.get_mouse_position())
 
 func calculate_path() -> Array[Vector2]:
 	var core = self.core_entity()
