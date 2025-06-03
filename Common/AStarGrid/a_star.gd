@@ -14,6 +14,7 @@ func _ready() -> void:
 
 	a_star_grid.region = tilemap_rect
 	a_star_grid.cell_size = Vector2(tile_size)
+	a_star_grid.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_AT_LEAST_ONE_WALKABLE
 	a_star_grid.update()
 
 	var used_cells: Array[Vector2i] = tile_map.get_used_cells()
@@ -25,6 +26,12 @@ func _ready() -> void:
 
 		if cell_tile_data.get_custom_data(TilemapConstants.CUSTOM_TYPE) == TilemapConstants.CUSTOM_TYPE_OBST:
 			a_star_grid.set_point_solid(cell, true)
+
+func is_in_bounds(point: Vector2) -> bool:
+	var local_point = to_global(point)
+	var map_point = tile_map.local_to_map(local_point)
+
+	return a_star_grid.is_in_boundsv(map_point)
 
 func calculate(global_from: Vector2, global_to: Vector2) -> Array[Vector2]:
 	var local_from: Vector2 = to_local(global_from)
