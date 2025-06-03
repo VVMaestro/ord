@@ -1,7 +1,8 @@
+class_name AStar
 extends Node2D
 
 @export
-var tile_map: TileMap
+var tile_map: TileMapLayer
 
 var a_star_grid: AStarGrid2D
 
@@ -15,12 +16,12 @@ func _ready() -> void:
 	a_star_grid.cell_size = Vector2(tile_size)
 	a_star_grid.update()
 
-	var used_cells: Array[Vector2i] = tile_map.get_used_cells(TilemapConstants.TileMapLayer.BASE)
+	var used_cells: Array[Vector2i] = tile_map.get_used_cells()
 
 	for cell in used_cells:
 		assert(a_star_grid.is_in_boundsv(cell), "Tile map cell not in A* rect bounds")
 
-		var cell_tile_data: TileData = tile_map.get_cell_tile_data(TilemapConstants.TileMapLayer.BASE, cell)
+		var cell_tile_data: TileData = tile_map.get_cell_tile_data(cell)
 
 		if cell_tile_data.get_custom_data(TilemapConstants.CUSTOM_TYPE) == TilemapConstants.CUSTOM_TYPE_OBST:
 			a_star_grid.set_point_solid(cell, true)

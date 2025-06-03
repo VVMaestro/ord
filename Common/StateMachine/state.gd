@@ -4,6 +4,8 @@ extends Node2D
 
 var sm: StateMachine
 
+signal state_ended
+
 func _init(state_machine: StateMachine) -> void:
 	sm = state_machine
 
@@ -31,5 +33,5 @@ func handle_mouse_exit_map() -> void:
 func core_entity() -> StateCoreEntity:
 	return sm.state_core_entity
 
-static func get_state_name() -> StringName:
-	return "base_state"
+static func get_state_name() -> int:
+	return StatesConstants.State.BASE

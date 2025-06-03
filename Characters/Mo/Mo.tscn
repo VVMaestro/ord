@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://cdtd3g0q2royl"]
 
 [ext_resource type="Texture2D" uid="uid://dd5df3alagigm" path="res://Characters/Mo/Sprites/mo-run.png" id="1_m222h"]
-[ext_resource type="Script" path="res://Characters/Mo/Scripts/mo_controller.gd" id="1_wp0wp"]
+[ext_resource type="Script" uid="uid://qqmkjdjhk8la" path="res://Characters/Mo/Scripts/mo_controller.gd" id="1_wp0wp"]
 [ext_resource type="Texture2D" uid="uid://cenl7l7qmhrxj" path="res://Characters/Mo/Sprites/mo-idle.png" id="2_gs6je"]
 [ext_resource type="Texture2D" uid="uid://d4keek0vvx20j" path="res://Characters/Mo/Sprites/mo-walk.png" id="3_pq33a"]
 [ext_resource type="Texture2D" uid="uid://dj3y3t0ddjich" path="res://Characters/Mo/Sprites/mo-hit.png" id="4_p7jt6"]
@@ -251,12 +251,12 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vxnos"]
 _data = {
-"RESET": SubResource("Animation_6q0py"),
-"death": SubResource("Animation_jwlx1"),
-"hit": SubResource("Animation_86hp5"),
-"idle": SubResource("Animation_ym0ku"),
-"run": SubResource("Animation_3p5bg"),
-"walk": SubResource("Animation_2xgk0")
+&"RESET": SubResource("Animation_6q0py"),
+&"death": SubResource("Animation_jwlx1"),
+&"hit": SubResource("Animation_86hp5"),
+&"idle": SubResource("Animation_ym0ku"),
+&"run": SubResource("Animation_3p5bg"),
+&"walk": SubResource("Animation_2xgk0")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cnymh"]
@@ -266,7 +266,7 @@ script = ExtResource("1_wp0wp")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_vxnos")
+&"": SubResource("AnimationLibrary_vxnos")
 }
 autoplay = "idle"
 

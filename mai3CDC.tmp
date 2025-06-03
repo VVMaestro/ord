@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=4 uid="uid://bt6n0uhsvdypf"]
 
-[ext_resource type="Script" uid="uid://58c2bqe8ppid" path="res://Common/nav_tile_map.gd" id="2_3ahxf"]
+[ext_resource type="Script" path="res://Common/nav_tile_map.gd" id="2_3ahxf"]
 [ext_resource type="PackedScene" uid="uid://cdtd3g0q2royl" path="res://Characters/Mo/Mo.tscn" id="2_ibnmh"]
 [ext_resource type="TileSet" uid="uid://dcxonxh0qy21v" path="res://Environment/Fields/fields_tile_set.tres" id="2_vcu05"]
 [ext_resource type="PackedScene" uid="uid://i67nftr58v6p" path="res://Common/AStarGrid/a_star_grid.tscn" id="3_yqkjs"]
@@ -25,7 +25,7 @@ zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 
 [node name="AStarGrid" parent="." node_paths=PackedStringArray("tile_map") instance=ExtResource("3_yqkjs")]
-tile_map = NodePath("../base")
+tile_map = NodePath("")
 
 [connection signal="entered_map" from="base" to="Mo" method="_on_mouse_entered_map"]
 [connection signal="entered_tile" from="base" to="Mo" method="_on_mouse_entered_tile"]

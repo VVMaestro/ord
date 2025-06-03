@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=2 format=3 uid="uid://c4x2804qscjqo"]
 
-[ext_resource type="TileSet" path="res://Environment/Forest/forest.tres" id="TileSet_0"]
+[ext_resource type="TileSet" uid="uid://ca6fnhmv8mund" path="res://Environment/Forest/forest.tres" id="TileSet_0"]
 
 [node name="Forest" type="TileMap"]
 tile_set = ExtResource("TileSet_0")

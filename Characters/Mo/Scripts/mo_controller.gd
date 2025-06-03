@@ -10,6 +10,8 @@ func _ready() -> void:
 
 	state_machine.change_state(IdleState.get_state_name())
 
+	path_ended.connect(_on_path_ended)
+
 func _process(delta: float) -> void:
 	state_machine.do(delta)
 
@@ -19,7 +21,8 @@ func _input(event: InputEvent) -> void:
 func get_states() -> Array[Script]:
 	return [
 		IdleState,
-		RunState
+		RunState,
+		ClimbState
 	]
 
 func _on_mouse_entered_map() -> void:
@@ -30,3 +33,6 @@ func _on_mouse_exit_map() -> void:
 
 func _on_mouse_entered_tile(tile_index: Vector2i) -> void:
 	state_machine.handle_mouse_entered_tile(tile_index)
+
+func _on_path_ended() -> void:
+	state_machine.change_state(StatesConstants.State.IDLE)
