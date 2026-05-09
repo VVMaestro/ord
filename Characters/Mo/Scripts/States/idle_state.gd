@@ -29,7 +29,7 @@ func handle_input(event: InputEvent) -> void:
 
 func handle_mouse_entered_tile(_tile_index: Vector2i) -> void:
 	var core: StateCoreEntity = self.core_entity()
-  
+
 	var path: Array[Vector2] = calculate_path()
 
 	core.draw_nav_line(path)

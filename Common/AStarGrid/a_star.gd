@@ -28,8 +28,8 @@ func _ready() -> void:
 			a_star_grid.set_point_solid(cell, true)
 
 func is_in_bounds(point: Vector2) -> bool:
-	var local_point = to_global(point)
-	var map_point = tile_map.local_to_map(local_point)
+	var local_point: Vector2 = to_global(point)
+	var map_point: Vector2i = tile_map.local_to_map(local_point)
 
 	return a_star_grid.is_in_boundsv(map_point)
 
