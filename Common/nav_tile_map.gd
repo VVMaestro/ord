@@ -10,6 +10,17 @@ var is_on_map: bool = false
 
 var last_tile_index: Vector2i = Vector2i(-1, -1)
 
+var nav_line: Line2D
+
+@export
+var a_star_grid: AStar
+
+func _ready() -> void:
+	nav_line = Line2D.new()
+	nav_line.width = 2.0
+
+	add_child(nav_line)
+
 func _input(event: InputEvent) -> void:
 	if not event is InputEventMouseMotion:
 		return
@@ -42,3 +53,12 @@ func is_tile() -> bool:
 func get_tile_index() -> Vector2i:
 	var point: Vector2 = get_local_mouse_position()
 	return local_to_map(point)
+	
+func draw_nav_line(line_path: Array[Vector2]) -> void:
+	clear_nav_line()
+
+	for point in line_path:
+		nav_line.add_point(to_local(point))
+
+func clear_nav_line() -> void:
+	nav_line.clear_points()
