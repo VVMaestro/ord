@@ -21,15 +21,6 @@ func do(delta: float) -> void:
 func handle_input(event: InputEvent) -> void:
 	current_state.handle_input(event)
 
-func handle_mouse_enter_map() -> void:
-	current_state.handle_mouse_enter_map()
-
-func handle_mouse_exit_map() -> void:
-	current_state.handle_mouse_exit_map()
-
-func handle_mouse_entered_tile(tile_index: Vector2i) -> void:
-	current_state.handle_mouse_entered_tile(tile_index)
-
 func add_state_to_queue(new_state: int) -> void:
 	state_queue.push(new_state)
 
@@ -37,7 +28,7 @@ func next_state() -> void:
 	if state_queue.size() == 0:
 		change_state(StatesConstants.State.IDLE)
 
-func change_state(new_state_name: int) -> void:
+func change_state(new_state_name: StatesConstants.State) -> void:
 	if current_state != null:
 		current_state.state_ended.disconnect(_on_current_state_ended)
 

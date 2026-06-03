@@ -2,7 +2,7 @@ class_name StatesConstants
 extends Resource
 
 enum State {
-	BASE = 1,
+	BASE = 0,
 	IDLE,
 	RUN,
 	MOVE,
