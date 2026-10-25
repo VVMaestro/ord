@@ -1,29 +1,29 @@
 class_name StateQueue
 extends GDScript
 
-var queue: Array[int] = []
+var queue: Array[State] = []
 
-func _init(initial_states: Array[int]):
+func _init(initial_states: Array[State]):
 	if initial_states != null:
 		for state in initial_states:
 			queue.push_back(state)
 
-func pop() -> int:
+func pop() -> State:
 	return queue.pop_front()
 
-func push(state: int):
+func push(state: State):
 	queue.push_back(state)
 
-func first() -> int:
+func first() -> State:
 	if queue.size() > 0:
 		return queue[0]
 	else:
-		return 0
+		return null
 
 func clear():
 	queue.clear()
 
-func replace(state: int) -> State:
+func replace(state: State) -> State:
 	var old_state = queue.pop_back()
 
 	push(state)

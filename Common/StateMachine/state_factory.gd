@@ -12,10 +12,10 @@ func get_state(state_name: StatesConstants.State) -> Script:
 	assert(states_dict.has(state_name), "No state %s in state factory" % state_name)
 
 	return states_dict.get(state_name)
-	
-func get_state_by_tile_type(tile_type: TilemapConstants.TileType) -> State:
+
+func get_state_by_tile_type(tile_type: TilemapConstants.TileType) -> Script:
 	var new_state: StatesConstants.State = StatesConstants.State.BASE
-	
+
 	match tile_type:
 		TilemapConstants.TileType.PATH:
 			new_state = StatesConstants.State.MOVE
@@ -23,7 +23,7 @@ func get_state_by_tile_type(tile_type: TilemapConstants.TileType) -> State:
 			new_state = StatesConstants.State.IDLE
 		TilemapConstants.TileType.CLIMB:
 			new_state = StatesConstants.State.CLIMB
-			
+
 	assert(new_state != StatesConstants.State.BASE, "Base state is not allowed")
-			
-	return get_state(new_state).new()
+
+	return get_state(new_state)

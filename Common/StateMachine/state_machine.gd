@@ -21,7 +21,7 @@ func do(delta: float) -> void:
 func handle_input(event: InputEvent) -> void:
 	current_state.handle_input(event)
 
-func add_state_to_queue(new_state: int) -> void:
+func add_state_to_queue(new_state: State) -> void:
 	state_queue.push(new_state)
 
 func next_state() -> void:
